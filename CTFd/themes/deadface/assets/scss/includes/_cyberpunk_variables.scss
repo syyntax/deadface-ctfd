@@ -1,0 +1,41 @@
+// deadface-ctfd/CTFd/themes/deadface/assets/scss/includes/_cyberpunk_variables.scss
+
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Genos:ital,wght@0,100..900;1,100..900&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Iceberg&family=Jersey+10&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Sanchez:ital@0;1&family=Shadows+Into+Light&display=swap');
+
+/* Root Variables (Color Palette) */
+:root {
+    --blue: #00ffff; /* Neon Cyan */
+    --indigo: #ff00ff; /* Neon Magenta */
+    --purple: #ff00ff; /* Neon Magenta */
+    --pink: #ff3366; /* Neon Red/Pink */
+    --red: #ff3366; /* Neon Red */
+    --orange: #ffa500; /* Vibrant Orange */
+    --yellow: #ffff00; /* Neon Yellow */
+    --green: #00ff00; /* Lime Green */
+    --teal: #00ffff; /* Neon Cyan */
+    --cyan: #00ffff; /* Neon Cyan */
+    --white: #f0f0f0; /* Off-white for text */
+    --gray: #808080; /* Darker gray */
+    --gray-dark: #333333; /* Even darker gray */
+    --primary: var(--indigo);
+    --secondary: var(--gray);
+    --success: var(--green);
+    --info: var(--teal);
+    --warning: var(--yellow);
+    --danger: var(--red);
+    --light: var(--gray-dark);
+    --dark: #1a1a1a; /* Base dark background */
+    --font-family-sans-serif: 'Sanchez', 'Genos', sans-serif; /* Futuristic fonts */
+    --font-family-monospace: 'Fira Code', monospace; /* Techy monospace fonts */
+    --border-radius: 8px;
+
+    // Ensure primary-rgb, success-rgb etc. are also defined for rgba usage
+    // These are typically derived dynamically in CTFd's base theme but good to have explicit fallbacks if needed.
+    // For accurate rgba, you'd usually have separate R, G, B variables, but for simplicity with full color var, this works:
+    --primary-rgb: 255, 0, 255; /* RGB for --indigo */
+    --success-rgb: 0, 255, 0; /* RGB for --green */
+    --danger-rgb: 255, 51, 102; /* RGB for --red */
+    --info-rgb: 0, 255, 255; /* RGB for --teal */
+    --warning-rgb: 255, 255, 0; /* RGB for --yellow */
+}

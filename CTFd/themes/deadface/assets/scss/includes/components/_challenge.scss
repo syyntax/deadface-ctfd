@@ -1,0 +1,149 @@
+/* Challenge styles
+-------------------------------------------------- */
+
+.challenge-desc {
+  overflow-wrap: anywhere;
+
+  img {
+    max-width: 100%;
+  }
+}
+
+[data-bs-theme="light"] .challenge-button {
+  border: none;
+  box-shadow: 0 0 15px var(--bs-secondary);
+
+  &.challenge-solved {
+    background-color: #29c830;
+
+    &:hover {
+      background-color: #37d63e;
+    }
+  }
+}
+
+[data-bs-theme="dark"] .challenge-button {
+  border: none;
+  background-color: var(--bs-gray-dark);
+
+  &:hover {
+    background-color: var(--bs-gray);
+  }
+
+  &.challenge-solved {
+    background-color: #29c830;
+
+    &:hover {
+      background-color: #37d63e;
+    }
+  }
+}
+
+/* deadface-ctfd/CTFd/themes/deadface/assets/scss/includes/components/_challenge.scss */
+
+// Existing content in _challenge.scss (if any) might look something like this
+// .challenge-button {
+//     /* ... existing button styles ... */
+// }
+
+// Add these new styles for the challenge cards
+
+/* deadface-ctfd/CTFd/themes/deadface/assets/scss/includes/components/_challenge.scss */
+
+.challenge-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    // --- START CHANGES ---
+    border: 1px solid var(--primary); // Card border should be --primary color
+    // Use --primary-rgb for shadow to allow for transparency
+    box-shadow: 0 0.125rem 0.25rem rgba(var(--primary-rgb), 0.2); // Shadow using --primary color
+    // --- END CHANGES ---
+    border-radius: var(--border-radius);
+    background-color: var(--background-secondary);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    cursor: pointer;
+    min-height: 250px;
+    overflow: hidden;
+
+    &:hover {
+        transform: translateY(-5px);
+        // --- START CHANGES ---
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.7); // Stronger hover shadow with --primary color
+        // --- END CHANGES ---
+        border-color: var(--cyan); // Already primary on hover, keeping for consistency
+    }
+
+    .challenge-img {
+        width: 100%;
+        height: 120px;
+        object-fit: cover;
+        object-position: center;
+        border-top-left-radius: var(--border-radius);
+        border-top-right-radius: var(--border-radius);
+        background-color: var(--background-tertiary);
+    }
+
+    .card-body {
+        padding: 0.75rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 1;
+        text-align: center;
+    }
+
+    .challenge-name {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text-color);
+        // --- START CHANGE ---
+        margin-bottom: 0.1rem; // Reduce gap between name and points
+        // --- END CHANGE ---
+        line-height: 1.2;
+        word-break: break-word;
+    }
+
+    .challenge-points {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin-top: auto;
+    }
+
+    &.solved {
+        border-color: var(--success);
+        box-shadow: 0 0 0 0.2rem rgba(var(--success-rgb), 0.25);
+    }
+
+    .solved-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(var(--success-rgb), 0.1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        pointer-events: none;
+        border-radius: var(--border-radius);
+    }
+
+    .solved-icon {
+        color: var(--success);
+        font-size: 3rem;
+        opacity: 0.8;
+        filter: drop-shadow(0 0 5px rgba(0,0,0,0.2));
+    }
+}
+
+a.challenge-card {
+    text-decoration: none;
+    color: inherit;
+}
+
+// If there were existing challenge-button styles, you might want to remove or comment them out
+// .challenge-button {
+//     display: none; // Hide the old button style if it's still being rendered somewhere unexpected
+// }
